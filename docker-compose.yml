@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15
+    container_name: todo-local
+    volumes:
+      - todo-local:/var/lib/postgresql/data
+    ports:
+      - "5438:5432"
+    environment:
+      - POSTGRES_USER=todo-local
+      - POSTGRES_PASSWORD=local_local
+      - POSTGRES_DB=todo-local
+    restart: always
+
+volumes:
+  todo-local:
