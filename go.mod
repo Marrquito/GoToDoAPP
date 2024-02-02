@@ -1,4 +1,4 @@
-module TodoAppGO
+module github.com/Marrquito/GoToDoAPP
 
 go 1.20
 

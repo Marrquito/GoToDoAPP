@@ -1,7 +1,7 @@
 package database
 
 import (
-	"TodoAppGO/database/models"
+	"github.com/Marrquito/GoToDoAPP/database/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

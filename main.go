@@ -4,8 +4,9 @@ Copyright © 2024 NAME HERE <EMAIL ADDRESS>
 package main
 
 import (
-	"TodoAppGO/cmd"
 	"fmt"
+
+	"github.com/Marrquito/GoToDoAPP/cmd"
 )
 
 func main() {
