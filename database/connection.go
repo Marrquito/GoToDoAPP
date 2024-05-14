@@ -6,6 +6,7 @@ import (
 	"time"
 
 	myLog "github.com/Marrquito/GoToDoAPP/common/logger"
+	"github.com/Marrquito/GoToDoAPP/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -26,10 +27,10 @@ func Connect() *gorm.DB {
 		),
 	})
 
-	logger := myLog.NewLogger(1, "Db Connection")
+	logger := myLog.NewLogger(config.ErrorLevel, "Db Connection")
 
 	if err != nil {
-		logger.Error("Failed to connect to db: ", err)
+		panic("Could not connect to the database")
 	}
 
 	logger.Info("DB Connected!")
