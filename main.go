@@ -10,8 +10,8 @@ import (
 )
 
 func main() {
-	cmd.Execute()
-	
 	logger := logger.NewLogger(config.InfoLevel, "Server")
 	logger.Info("Starting ToDo")
+
+	cmd.Execute()
 }
