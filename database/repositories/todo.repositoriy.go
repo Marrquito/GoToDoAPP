@@ -14,10 +14,10 @@ type toDoRepository struct {
 
 type ToDoRepository interface {
 	Create(toDo models.ToDo) (models.ToDo, error)
-	Read(id uint64) (*models.ToDo, error)
+	Read(id uint) (*models.ToDo, error)
 	List(options *ListToDoOptions) ([]models.ToDo, int64, error)
 	Update(toDo models.ToDo) (models.ToDo, error)
-	Delete(id uint64) error
+	Delete(id uint) error
 }
 
 type ListToDoOptions struct {
@@ -43,7 +43,7 @@ func (r *toDoRepository) Create(toDo models.ToDo) (models.ToDo, error) {
 	return createdToDo, db.Error
 }
 
-func (r *toDoRepository) Read(id uint64) (*models.ToDo, error) {
+func (r *toDoRepository) Read(id uint) (*models.ToDo, error) {
 	var toDo models.ToDo
 
 	db := r.database.Model(&models.ToDo{})
@@ -82,7 +82,7 @@ func (r *toDoRepository) Update(toDo models.ToDo) (models.ToDo, error) {
 	return toDo, db.Error
 }
 
-func (r *toDoRepository) Delete(id uint64) error {
+func (r *toDoRepository) Delete(id uint) error {
 	db := r.database.Delete(&models.ToDo{}, id)
 
 	return db.Error

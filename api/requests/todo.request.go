@@ -7,6 +7,12 @@ type CreateToDoRequest struct {
 	Description string `json:"description" form:"description"`
 }
 
+type ListToDoRequest struct {
+	Page  int    `form:"page"`
+	Limit int    `form:"limit"`
+	Order string `form:"order"`
+}
+
 type UpdateToDoRequest struct {
 	Title       *string `json:"title" form:"title"`
 	Description *string `json:"description" form:"description"`
