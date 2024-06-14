@@ -52,7 +52,7 @@ func (d ItemDelegate) Render(w io.Writer, m list.Model, index int, listItem list
 
 type model struct {
 	list     list.Model
-	Output   *utils.Output
+	Output   *utils.Output_str
 	choice   string
 	quitting bool
 }
@@ -130,7 +130,7 @@ func main() {
 	}
 }
 
-func InitModel(Output *utils.Output, Items []list.Item, Title string) model {
+func InitModel(Output *utils.Output_str, Items []list.Item, Title string) model {
 	l := list.New(Items, ItemDelegate{}, 20, listHeight)
 	l.SetShowStatusBar(false)
 	l.SetFilteringEnabled(false)

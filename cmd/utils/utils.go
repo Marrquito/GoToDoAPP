@@ -1,9 +1,9 @@
 package utils
 
-type Output struct {
+type Output_str struct {
 	Output string
 }
 
-func (o *Output) Update(v string) {
+func (o *Output_str) Update(v string) {
 	o.Output = v
 }

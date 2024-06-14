@@ -23,7 +23,7 @@ var startCmd = &cobra.Command{
 			listSimple.Item("Deletar tarefa"),
 		}
 
-		var output utils.Output
+		var output utils.Output_str
 		tprogram := tea.NewProgram(listSimple.InitModel(&output, items, "O que deseja fazer?"))
 		if _, err := tprogram.Run(); err != nil {
 			fmt.Println(err)

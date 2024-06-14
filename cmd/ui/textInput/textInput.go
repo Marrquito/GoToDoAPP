@@ -17,7 +17,7 @@ var (
 )
 
 func main() {
-	var output utils.Output
+	var output utils.Output_str
 	p := tea.NewProgram(InitModel(&output, "Meu Header aqui"), tea.WithAltScreen())
 	if _, err := p.Run(); err != nil {
 		log.Fatal(err)
@@ -31,7 +31,7 @@ type (
 type model struct {
 	header    string
 	textInput textinput.Model
-	output    *utils.Output
+	output    *utils.Output_str
 	err       error
 }
 
@@ -44,7 +44,7 @@ func sanitizeInput(input string) error {
 	return nil
 }
 
-func InitModel(output *utils.Output, header string) model {
+func InitModel(output *utils.Output_str, header string) model {
 	ti := textinput.New()
 	ti.Placeholder = "Your text here"
 	ti.Focus()

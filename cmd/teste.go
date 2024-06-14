@@ -3,9 +3,9 @@ package cmd
 import (
 	"fmt"
 
-	listSimple "github.com/Marrquito/GoToDoAPP/cmd/ui/list_simple"
+	"github.com/Marrquito/GoToDoAPP/cmd/ui/multiInput"
+	"github.com/Marrquito/GoToDoAPP/cmd/ui/textInput"
 	"github.com/Marrquito/GoToDoAPP/cmd/utils"
-	"github.com/charmbracelet/bubbles/list"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/spf13/cobra"
 )
@@ -16,26 +16,18 @@ var testeCmd = &cobra.Command{
 	Short: "test",
 	Long: `Test some options of bubbletea`,
 	Run: func(cmd *cobra.Command, args []string) {
-		var output utils.Output
-		// tprogram := tea.NewProgram(textInput.InitModel(&output, "Qual seu é nome?"), tea.WithAltScreen())
-
-		// if _, err := tprogram.Run(); err != nil {
-		// 	fmt.Println(err)
-		// }
-
-		// fmt.Println("output = ", output.Output)
+		var output utils.Output_str
 		
-		
-		items := []list.Item{
-			listSimple.Item("OPA"),
-			listSimple.Item("OPA2"),
-			listSimple.Item("OPA3"),
-		}
-
-		tprogram := tea.NewProgram(listSimple.InitModel(&output, items, "Meu titulo"))
-		if _, err := tprogram.Run(); err != nil {
+		tprogram2 := tea.NewProgram(textInput.InitModel(&output, "Qual seu é nome?"), tea.WithAltScreen())
+		if _, err := tprogram2.Run(); err != nil {
 			fmt.Println(err)
 		}
+		
+		tprogram := tea.NewProgram(multiInput.InitModel(), tea.WithAltScreen())
+		if _, err := tprogram.Run(); err != nil {
+			fmt.Println(err.Error())
+		}
+
 	},
 }
 
